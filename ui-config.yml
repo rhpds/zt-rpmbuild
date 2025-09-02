@@ -1,0 +1,24 @@
+---
+antora:
+  name: modules
+  dir: www
+  modules:
+    - name: "01-setup"
+      label: "Setup"
+      solveButton: false
+    - name: "02-bello"
+      label: "Bello"
+      solveButton: false
+    - name: "03-cello"
+      label: "Cello"
+      solveButton: false
+    - name: "04-pello"
+      label: "Pello"
+      solveButton: false
+    - name: "05-mock"
+      label: "Mock"
+      solveButton: false
+
+tabs:
+  - name: ">_ terminal"
+    url: /wetty_rhel/ssh/root

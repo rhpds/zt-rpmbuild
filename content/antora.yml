@@ -1,0 +1,9 @@
+---
+name: modules
+version: master
+
+asciidoc:
+  attributes:
+    lab_name: "Build software into RPM packages"
+    release-version: master
+    page-pagination: true
