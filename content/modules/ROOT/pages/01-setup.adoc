@@ -1,3 +1,5 @@
+== Welcome to the lab environment!
+
 Welcome to the lab environment! Here a few tips for completing these
 challenges.
 
@@ -9,8 +11,6 @@ challenge. These blocks will have a copy button in the top right corner.
 They look similar to command blocks, except they will *not* have a copy
 button in the top right corner. Do *not* attempt to run the text from
 these blocks as commands.
-* The CTRL+v shortcut does not work to paste in the terminal interface.
-You can however paste from the right click menu.
 
 == Setting up the packaging workspace
 
