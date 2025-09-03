@@ -42,7 +42,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- epel-release           noarch      9-7.el9        @commandline       18 k
+ epel-release           noarch      9-7.el10        @commandline       18 k
 ### OUTPUT ABRIDGED ###
 ----
 
@@ -57,13 +57,13 @@ sudo dnf -y install mock
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- mock                noarch   5.5-1.el9        epel                               210 k
+ mock                noarch   5.5-1.el10        epel                               210 k
 Installing dependencies:
- conmon              x86_64   2:2.1.10-1.el9   rhel-9-for-x86_64-appstream-rpms    54 k
- containers-common   x86_64   2:1-91.el9_4     rhel-9-for-x86_64-appstream-rpms   142 k
- createrepo_c        x86_64   0.20.1-2.el9     rhel-9-for-x86_64-appstream-rpms    80 k
- createrepo_c-libs   x86_64   0.20.1-2.el9     rhel-9-for-x86_64-appstream-rpms   102 k
- criu                x86_64   3.19-1.el9       rhel-9-for-x86_64-appstream-rpms   563 k
+ conmon              x86_64   2:2.1.10-1.el10   rhel-9-for-x86_64-appstream-rpms    54 k
+ containers-common   x86_64   2:1-91.el10_4     rhel-9-for-x86_64-appstream-rpms   142 k
+ createrepo_c        x86_64   0.20.1-2.el10     rhel-9-for-x86_64-appstream-rpms    80 k
+ createrepo_c-libs   x86_64   0.20.1-2.el10     rhel-9-for-x86_64-appstream-rpms   102 k
+ criu                x86_64   3.19-1.el10       rhel-9-for-x86_64-appstream-rpms   563 k
 ### OUTPUT ABRIDGED ###
 ----
 
@@ -117,16 +117,16 @@ built source package. This will take a bit longer to run than the
 
 [source,bash]
 ----
-mock --root rhel-8-x86_64 SRPMS/pello-1.0.4-1.el9.src.rpm
+mock --root rhel-8-x86_64 SRPMS/pello-1.0.4-1.el10.src.rpm
 ----
 
 [source,nocopy]
 ----
 ### OUTPUT ABRIDGED ###
 Wrote: /builddir/build/RPMS/pello-1.0.4-1.el8.noarch.rpm
-Finish: rpmbuild pello-1.0.4-1.el9.src.rpm
-Finish: build phase for pello-1.0.4-1.el9.src.rpm
-INFO: Done(SRPMS/pello-1.0.4-1.el9.src.rpm) Config(rhel-8-x86_64) 0 minutes 26 seconds
+Finish: rpmbuild pello-1.0.4-1.el10.src.rpm
+Finish: build phase for pello-1.0.4-1.el10.src.rpm
+INFO: Done(SRPMS/pello-1.0.4-1.el10.src.rpm) Config(rhel-8-x86_64) 0 minutes 26 seconds
 INFO: Results and/or logs in: /var/lib/mock/rhel-8-x86_64/result
 Finish: run
 ----
@@ -154,7 +154,7 @@ version of this dependency corresponds to the default Python version
 
 [source,bash]
 ----
-rpm --query --requires --package RPMS/noarch/pello-1.0.4-1.el9.noarch.rpm | grep 'python(abi)'
+rpm --query --requires --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm | grep 'python(abi)'
 ----
 
 [source,nocopy]

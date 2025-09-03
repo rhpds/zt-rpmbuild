@@ -30,14 +30,14 @@ sudo dnf -y install rpmdevtools rpmlint
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- rpmdevtools                   noarch   9.5-1.el9              rhel-9-for-x86_64-appstream-rpms    93 k
- rpmlint                       noarch   1.11-19.el9            rhel-9-for-x86_64-appstream-rpms   202 k
+ rpmdevtools                   noarch   9.5-1.el10              rhel-9-for-x86_64-appstream-rpms    93 k
+ rpmlint                       noarch   1.11-19.el10            rhel-9-for-x86_64-appstream-rpms   202 k
 Installing dependencies:
- adobe-source-code-pro-fonts   noarch   2.030.1.050-12.el9.1   rhel-9-for-x86_64-baseos-rpms      836 k
- binutils                      x86_64   2.35.2-43.el9          rhel-9-for-x86_64-baseos-rpms      4.6 M
- binutils-gold                 x86_64   2.35.2-43.el9          rhel-9-for-x86_64-baseos-rpms      736 k
- bzip2                         x86_64   1.0.8-8.el9            rhel-9-for-x86_64-baseos-rpms       60 k
- cpio                          x86_64   2.13-16.el9            rhel-9-for-x86_64-baseos-rpms      279 k
+ adobe-source-code-pro-fonts   noarch   2.030.1.050-12.el10.1   rhel-9-for-x86_64-baseos-rpms      836 k
+ binutils                      x86_64   2.35.2-43.el10          rhel-9-for-x86_64-baseos-rpms      4.6 M
+ binutils-gold                 x86_64   2.35.2-43.el10          rhel-9-for-x86_64-baseos-rpms      736 k
+ bzip2                         x86_64   1.0.8-8.el10            rhel-9-for-x86_64-baseos-rpms       60 k
+ cpio                          x86_64   2.13-16.el10            rhel-9-for-x86_64-baseos-rpms      279 k
 ### OUTPUT ABRIDGED ###
 ----
 
