@@ -28,7 +28,7 @@ mv -v ~/downloads/Pello-1.0.4.tar.gz SOURCES/
 
 [source,nocopy]
 ----
-renamed '/home/rhel/downloads/Pello-1.0.4.tar.gz' -> 'SOURCES/Pello-1.0.4.tar.gz'
+renamed '/root/downloads/Pello-1.0.4.tar.gz' -> 'SOURCES/Pello-1.0.4.tar.gz'
 ----
 
 Verify the source code archive is in the correct location.
@@ -328,13 +328,13 @@ rpmbuild -ba SPECS/pello.spec
 [source,nocopy]
 ----
 ### OUTPUT ABRIDGED ###
-Wrote: /home/rhel/rpmbuild/SRPMS/pello-1.0.4-1.el9.src.rpm
-Wrote: /home/rhel/rpmbuild/RPMS/noarch/pello-1.0.4-1.el9.noarch.rpm
+Wrote: /root/rpmbuild/SRPMS/pello-1.0.4-1.el9.src.rpm
+Wrote: /root/rpmbuild/RPMS/noarch/pello-1.0.4-1.el9.noarch.rpm
 Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.npnz0l
 + umask 022
-+ cd /home/rhel/rpmbuild/BUILD
++ cd /root/rpmbuild/BUILD
 + cd Pello-1.0.4
-+ /usr/bin/rm -rf /home/rhel/rpmbuild/BUILDROOT/pello-1.0.4-1.el9.x86_64
++ /usr/bin/rm -rf /root/rpmbuild/BUILDROOT/pello-1.0.4-1.el9.x86_64
 + RPM_EC=0
 ++ jobs -p
 + exit 0

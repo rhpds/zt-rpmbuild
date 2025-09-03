@@ -12,11 +12,11 @@ echo 'addFilter("W: invalid-url")' >> /etc/rpmlint/invalid-url.config
 # echo "setting password"
 # echo redhat | passwd --stdin rhel
 
-echo "configuring rhel user bashrc"
-cat /root/.bashrc > /home/rhel/.bashrc
+# echo "configuring rhel user bashrc"
+# cat /root/.bashrc > /root/.bashrc
 
 echo "creating rhel downloads directory"
-mkdir /home/rhel/downloads
-chown rhel: /home/rhel/downloads
+mkdir /root/downloads
+chown rhel: /root/downloads
 
 # echo "DONE"

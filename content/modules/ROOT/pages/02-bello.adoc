@@ -6,7 +6,8 @@ Expand the section headers below to work on each section of this
 challenge.
 
 == Obtaining the source files
-
+[%collapsible]
+====
 Navigate to the *rpmbuild* directory.
 
 [source,bash]
@@ -21,12 +22,12 @@ Move the source code archive into the *SOURCES* directory.
 
 [source,bash]
 ----
-mv -v ~/downloads/bello-0.1.tar.gz SOURCES/
+mv -v /root/downloads/bello-0.1.tar.gz SOURCES/
 ----
 
 [source,nocopy]
 ----
-renamed '/home/rhel/downloads/bello-0.1.tar.gz' -> 'SOURCES/bello-0.1.tar.gz'
+renamed '/root/downloads/bello-0.1.tar.gz' -> 'SOURCES/bello-0.1.tar.gz'
 ----
 
 Verify the source code archive is in the correct location. The filename
@@ -43,9 +44,11 @@ SOURCES/bello-0.1.tar.gz
 ----
 
 Expand the next section header to continue the challenge.
+====
 
 == Writing the spec file
-
+[%collapsible]
+====
 Now you are going to create the spec file in the *SPECS* directory. You
 will start with the *preamble*, where metadata about the package is
 defined. The table below describes the preamble tags we are going to use
@@ -75,7 +78,7 @@ distribution of the software
 
 Define the *Name*, *Version*, and *Release* of the package. These
 properties together form a useful identifier known as the *NVR*
-(e.g. *bash-5.1.8-9.el9*). For now, set the version to *0*, even though
+(e.g. *bash-5.1.8-9.el10*). For now, set the version to *0*, even though
 this does not match the version of the software. You will set this to
 the correct version in a future step.
 
@@ -269,9 +272,12 @@ install -D -p -m 0755 bello %{buildroot}%{_bindir}/bello
 ----
 
 Expand the next section header to continue the challenge.
+====
 
 == Building the package
 
+[%collapsible]
+====
 Before starting the *rpmbuild* process, use the *rpmlint* command to
 check for common problems in your spec file.
 
@@ -296,13 +302,13 @@ rpmbuild -ba SPECS/bello.spec
 
 [source,nocopy]
 ----
-Wrote: /home/rhel/rpmbuild/SRPMS/bello-0.1-1.el9.src.rpm
-Wrote: /home/rhel/rpmbuild/RPMS/noarch/bello-0.1-1.el9.noarch.rpm
+Wrote: /root/rpmbuild/SRPMS/bello-0.1-1.el10.src.rpm
+Wrote: /root/rpmbuild/RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.ljskTE
 + umask 022
-+ cd /home/rhel/rpmbuild/BUILD
++ cd /root/rpmbuild/BUILD
 + cd bello-0.1
-+ /usr/bin/rm -rf /home/rhel/rpmbuild/BUILDROOT/bello-0.1-1.el9.x86_64
++ /usr/bin/rm -rf /root/rpmbuild/BUILDROOT/bello-0.1-1.el10.x86_64
 + RPM_EC=0
 ++ jobs -p
 + exit 0
@@ -315,7 +321,7 @@ notice this includes the spec file and source code archive.
 
 [source,bash]
 ----
-rpm --query --list --package SRPMS/bello-0.1-1.el9.src.rpm
+rpm --query --list --package SRPMS/bello-0.1-1.el10.src.rpm
 ----
 
 [source,nocopy]
@@ -328,7 +334,7 @@ Use the *rpm* command to list the contents of the package.
 
 [source,bash]
 ----
-rpm --query --list --package RPMS/noarch/bello-0.1-1.el9.noarch.rpm
+rpm --query --list --package RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 ----
 
 [source,nocopy]
@@ -346,7 +352,7 @@ a man page.
 
 [source,bash]
 ----
-rpmlint RPMS/noarch/bello-0.1-1.el9.noarch.rpm
+rpmlint RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 ----
 
 [source,nocopy]
@@ -360,14 +366,14 @@ Now that your package is built, you can install it on the system.
 
 [source,bash]
 ----
-sudo dnf -y install RPMS/noarch/bello-0.1-1.el9.noarch.rpm
+sudo dnf -y install RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 ----
 
 [source,nocopy]
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- bello         noarch         0.1-1.el9          @commandline         7.6 k
+ bello         noarch         0.1-1.el10          @commandline         7.6 k
 ### OUTPUT ABRIDGED ###
 ----
 
@@ -385,3 +391,4 @@ Hello World
 
 That concludes this challenge. In the next challenge, you will be
 packaging a C program named *cello*.
+====
