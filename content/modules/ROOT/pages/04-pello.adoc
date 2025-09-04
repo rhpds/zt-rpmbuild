@@ -14,7 +14,7 @@ Navigate to the *rpmbuild* directory.
 
 [source,bash]
 ----
-cd rpmbuild
+cd /root/rpmbuild
 ----
 
 The source code archive for pello is located at
