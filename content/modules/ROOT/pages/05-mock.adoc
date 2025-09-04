@@ -22,7 +22,7 @@ dependencies from the CodeReady Builder repository.
 Use the *subscription-manager* command to enable the CodeReady Builder
 repository.
 
-[source,text]
+[source,bash,run]
 ----
 sudo subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
 ----
@@ -35,7 +35,7 @@ Repository 'codeready-builder-for-rhel-9-x86_64-rpms' is enabled for this system
 Enable the EPEL repository. This is accomplished by installing the
 *epel-release* package.
 
-[source,bash]
+[source,bash,run]
 ----
 sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ----
@@ -50,7 +50,7 @@ Installing:
 
 Install the *mock* package from EPEL.
 
-[source,bash]
+[source,bash,run]
 ----
 sudo dnf -y install mock
 ----
@@ -73,9 +73,9 @@ In order to use *mock*, a user must be a member of the *mock* group.
 
 Use the *gpasswd* command to add the *rhel* user to the *mock* group.
 
-[source,bash]
+[source,bash,run]
 ----
-sudo gpasswd --add root mock
+sudo gpasswd --add rhel mock
 ----
 
 [source,nocopy]
@@ -87,19 +87,19 @@ You can use the *groups* command to verify the group membership.
 
 [source,bash]
 ----
-groups root
+groups rhel
 ----
 
 [source,nocopy]
 ----
-root : root mock
+rhel : rhel wheel mock
 ----
 
 Start a new login shell to have the new group membership take effect.
 
-[source,bash]
+[source,bash,run]
 ----
-sudo -iu root
+sudo -iu rhel
 ----
 
 Expand the next section header to continue the challenge.
@@ -110,7 +110,7 @@ Expand the next section header to continue the challenge.
 
 Navigate to the *rpmbuild* directory.
 
-[source,bash]
+[source,bash,run]
 ----
 cd /home/rhel/rpmbuild
 ----
@@ -119,7 +119,7 @@ Use the *mock* command to build *pello* for RHEL 8 from the previously
 built source package. This will take a bit longer to run than the
 *rpmbuild* command, because it must create the chroot environment.
 
-[source,bash]
+[source,bash,run]
 ----
 mock --root rhel-8-x86_64 SRPMS/pello-1.0.4-1.el10.src.rpm
 ----
@@ -142,21 +142,21 @@ Use the *rpm* command to show the dependency on *python(abi)* in this
 package. The version of this dependency corresponds to the default
 Python version (3.6) in RHEL 8.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --requires --package /var/lib/mock/rhel-8-x86_64/result/pello-1.0.4-1.el8.noarch.rpm | grep 'python(abi)'
 ----
 
 [source,nocopy]
 ----
-python(abi) = 3.6
+python(abi) = 3.12
 ----
 
 Now do the same for the package you built earlier with *rpmbuild*. The
 version of this dependency corresponds to the default Python version
-(3.9) in RHEL 9.
+(3.12) in RHEL 10.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --requires --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm | grep 'python(abi)'
 ----
@@ -175,7 +175,7 @@ directly from a spec file and the corresponding sources. Before you do
 this, increment the *Release* in the *pello* spec file using
 *rpmdev-bumpspec*, which will also add the appropriate changelog entry.
 
-[source,bash]
+[source,bash,run]
 ----
 rpmdev-bumpspec --comment 'Rebuild' SPECS/pello.spec
 ----
@@ -185,7 +185,7 @@ the *SOURCES* directory. This will be a bit faster than the first time
 you ran *mock* thanks to the chroot being cached, although still not
 quite as fast as running *rpmbuild* directly.
 
-[source,bash]
+[source,bash,run]
 ----
 mock --root rhel-8-x86_64 --spec SPECS/pello.spec --sources SOURCES
 ----
@@ -203,7 +203,7 @@ Finish: run
 
 Use *rpm* to inspect the resulting package.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --info --package /var/lib/mock/rhel-8-x86_64/result/pello-1.0.4-2.el8.noarch.rpm
 ----

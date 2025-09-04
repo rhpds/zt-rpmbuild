@@ -55,7 +55,7 @@ that file manually with a command-line text editor such as vim or nano.
 
 [source,bash]
 ----
-echo '%packager First Last <first@example.com>' >> ~/.rpmmacros
+echo '%packager RHEL Redhat rhel@redhat.com' >> ~/.rpmmacros
 ----
 
 Use the *rpm* command to expand the macro to validate that it is defined
