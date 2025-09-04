@@ -16,8 +16,7 @@ echo 'addFilter("W: invalid-url")' >> /etc/rpmlint/invalid-url.config
 # cat /root/.bashrc > /root/.bashrc
 
 echo "creating rhel downloads directory"
-mkdir /root/downloads
-chown rhel: /root/downloads
+mkdir -p /root/downloads
 
 wget -P /root/downloads \
     https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/bello-0.1.tar.gz
