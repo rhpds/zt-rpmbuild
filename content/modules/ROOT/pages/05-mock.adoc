@@ -13,6 +13,8 @@ challenge.
 
 == Install and configure mock
 
+[%collapsible]
+====
 Mock is not part of RHEL. It is available from the EPEL (Extra Packages
 for Enterprise Linux) repository. Some packages in EPEL have
 dependencies from the CodeReady Builder repository.
@@ -20,9 +22,9 @@ dependencies from the CodeReady Builder repository.
 Use the *subscription-manager* command to enable the CodeReady Builder
 repository.
 
-[source,bash]
+[source,text]
 ----
-sudo subscription-manager repos --enable codeready-builder-for-rhel-9-x86_64-rpms
+sudo subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
 ----
 
 [source,nocopy]
@@ -73,7 +75,7 @@ Use the *gpasswd* command to add the *rhel* user to the *mock* group.
 
 [source,bash]
 ----
-sudo gpasswd --add rhel mock
+sudo gpasswd --add root mock
 ----
 
 [source,nocopy]
@@ -85,22 +87,24 @@ You can use the *groups* command to verify the group membership.
 
 [source,bash]
 ----
-groups rhel
+groups root
 ----
 
 [source,nocopy]
 ----
-rhel : rhel mock
+root : root mock
 ----
 
 Start a new login shell to have the new group membership take effect.
 
 [source,bash]
 ----
-sudo -iu rhel
+sudo -iu root
 ----
 
 Expand the next section header to continue the challenge.
+
+====
 
 == Build with mock from a source package
 
@@ -108,7 +112,7 @@ Navigate to the *rpmbuild* directory.
 
 [source,bash]
 ----
-cd rpmbuild
+cd /root/rpmbuild
 ----
 
 Use the *mock* command to build *pello* for RHEL 8 from the previously
