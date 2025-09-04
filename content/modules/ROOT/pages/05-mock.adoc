@@ -37,7 +37,7 @@ Enable the EPEL repository. This is accomplished by installing the
 
 [source,bash]
 ----
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm
+sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
 ----
 
 [source,nocopy]
@@ -80,7 +80,7 @@ sudo gpasswd --add root mock
 
 [source,nocopy]
 ----
-Adding user rhel to group mock
+Adding user root to group mock
 ----
 
 You can use the *groups* command to verify the group membership.
@@ -112,7 +112,7 @@ Navigate to the *rpmbuild* directory.
 
 [source,bash]
 ----
-cd /root/rpmbuild
+cd /home/rhel/rpmbuild
 ----
 
 Use the *mock* command to build *pello* for RHEL 8 from the previously

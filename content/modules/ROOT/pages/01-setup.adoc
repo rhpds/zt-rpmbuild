@@ -68,7 +68,7 @@ rpm --eval '%packager'
 
 [source,nocopy]
 ----
-First Last <first@example.com>
+RHEL Redhat rhel@redhat.com>
 ----
 
 Expand the next section header to continue the challenge.

@@ -22,12 +22,12 @@ Move the source code archive into the *SOURCES* directory.
 
 [source,bash]
 ----
-mv -v /root/downloads/bello-0.1.tar.gz SOURCES/
+mv -v /home/rhel/downloads/bello-0.1.tar.gz SOURCES/
 ----
 
 [source,nocopy]
 ----
-renamed '/root/downloads/bello-0.1.tar.gz' -> 'SOURCES/bello-0.1.tar.gz'
+renamed '/home/rhel/downloads/bello-0.1.tar.gz' -> 'SOURCES/bello-0.1.tar.gz'
 ----
 
 Verify the source code archive is in the correct location. The filename
@@ -302,13 +302,13 @@ rpmbuild -ba SPECS/bello.spec
 
 [source,nocopy]
 ----
-Wrote: /root/rpmbuild/SRPMS/bello-0.1-1.el10.src.rpm
-Wrote: /root/rpmbuild/RPMS/noarch/bello-0.1-1.el10.noarch.rpm
+Wrote: /home/rhel/rpmbuild/SRPMS/bello-0.1-1.el10.src.rpm
+Wrote: /home/rhel/rpmbuild/RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.ljskTE
 + umask 022
-+ cd /root/rpmbuild/BUILD
++ cd /home/rhel/rpmbuild/BUILD
 + cd bello-0.1
-+ /usr/bin/rm -rf /root/rpmbuild/BUILDROOT/bello-0.1-1.el10.x86_64
++ /usr/bin/rm -rf /home/rhel/rpmbuild/BUILDROOT/bello-0.1-1.el10.x86_64
 + RPM_EC=0
 ++ jobs -p
 + exit 0

@@ -13,7 +13,7 @@ Navigate to the *rpmbuild* directory.
 
 [source,bash]
 ----
-cd /root/rpmbuild
+cd /home/rhel/rpmbuild
 ----
 
 The source code archive for *cello* is located at
@@ -32,8 +32,8 @@ mv -v ~/downloads/cello-1.0.tar.gz ~/downloads/cello-output-first-patch.patch SO
 
 [source,nocopy]
 ----
-renamed '/root/downloads/cello-1.0.tar.gz' -> 'SOURCES/cello-1.0.tar.gz'
-renamed '/root/downloads/cello-output-first-patch.patch' -> 'SOURCES/cello-output-first-patch.patch'
+renamed '/home/rhel/downloads/cello-1.0.tar.gz' -> 'SOURCES/cello-1.0.tar.gz'
+renamed '/home/rhel/downloads/cello-output-first-patch.patch' -> 'SOURCES/cello-output-first-patch.patch'
 ----
 
 Verify the source code archive and patch file are in the correct
@@ -309,15 +309,15 @@ rpmbuild -ba SPECS/cello.spec
 [source,nocopy]
 ----
 ### OUTPUT ABRIDGED ###
-Wrote: /root/rpmbuild/SRPMS/cello-1.0-1.el10.src.rpm
-Wrote: /root/rpmbuild/RPMS/x86_64/cello-debuginfo-1.0-1.el10.x86_64.rpm
-Wrote: /root/rpmbuild/RPMS/x86_64/cello-1.0-1.el10.x86_64.rpm
-Wrote: /root/rpmbuild/RPMS/x86_64/cello-debugsource-1.0-1.el10.x86_64.rpm
+Wrote: /home/rhel/rpmbuild/SRPMS/cello-1.0-1.el10.src.rpm
+Wrote: /home/rhel/rpmbuild/RPMS/x86_64/cello-debuginfo-1.0-1.el10.x86_64.rpm
+Wrote: /home/rhel/rpmbuild/RPMS/x86_64/cello-1.0-1.el10.x86_64.rpm
+Wrote: /home/rhel/rpmbuild/RPMS/x86_64/cello-debugsource-1.0-1.el10.x86_64.rpm
 Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.HECHUO
 + umask 022
-+ cd /root/rpmbuild/BUILD
++ cd /home/rhel/rpmbuild/BUILD
 + cd cello-1.0
-+ /usr/bin/rm -rf /root/rpmbuild/BUILDROOT/cello-1.0-1.el10.x86_64
++ /usr/bin/rm -rf /home/rhel/rpmbuild/BUILDROOT/cello-1.0-1.el10.x86_64
 + RPM_EC=0
 ++ jobs -p
 + exit 0

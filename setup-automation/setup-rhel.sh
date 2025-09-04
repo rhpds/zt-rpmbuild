@@ -13,17 +13,20 @@ echo 'addFilter("W: invalid-url")' >> /etc/rpmlint/invalid-url.config
 # echo redhat | passwd --stdin rhel
 
 # echo "configuring rhel user bashrc"
-# cat /root/.bashrc > /root/.bashrc
+cat /root/.bashrc > /home/rhel/.bashrc
 
 echo "creating rhel downloads directory"
-mkdir -p /root/downloads
+mkdir -p /home/rhel/downloads
+chown rhel: /home/rhel/downloads
 
-wget -P /root/downloads \
+wget -P /home/rhel/downloads \
     https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/bello-0.1.tar.gz
 
-wget -P/root/downloads \
+wget -P/home/rhel/downloads \
     https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/cello-1.0.tar.gz \
     https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/cello-output-first-patch.patch
 
-wget -P /root/downloads \
+wget -P /home/rhel/downloads \
     https://files.pythonhosted.org/packages/source/P/Pello/Pello-1.0.4.tar.gz
+
+chown -R rhel: /home/rhel/downloads
