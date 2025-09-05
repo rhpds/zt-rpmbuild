@@ -10,6 +10,8 @@ challenge.
 
 == Obtaining the source files
 
+[%collapsible]
+====
 Navigate to the *rpmbuild* directory.
 
 [source,bash]
@@ -45,7 +47,12 @@ SOURCES/Pello-1.0.4.tar.gz
 
 Expand the next section header to continue the challenge.
 
+====
+
 == Writing the spec file
+
+[%collapsible]
+====
 
 Define the *NVR* (*Name*, *Version*, *Release*) of the package. For now,
 set the version to *0*, even though this does not match the version of
@@ -279,7 +286,12 @@ Hello World! on the command line.
 
 Expand the next section header to continue the challenge.
 
+====
+
 == Building the package
+
+[%collapsible]
+====
 
 Before starting the *rpmbuild* process, use the *rpmlint* command to
 check for common problems in your spec file.

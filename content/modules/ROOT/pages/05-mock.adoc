@@ -35,6 +35,8 @@ Repository 'codeready-builder-for-rhel-9-x86_64-rpms' is enabled for this system
 Enable the EPEL repository. This is accomplished by installing the
 *epel-release* package.
 
+NOTE: The EPEL repository is already enabled. You may run the command below to confirm.
+
 [source,bash,run]
 ----
 sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
@@ -108,6 +110,9 @@ Expand the next section header to continue the challenge.
 
 == Build with mock from a source package
 
+[%collapsible]
+====
+
 Navigate to the *rpmbuild* directory.
 
 [source,bash,run]
@@ -163,12 +168,17 @@ rpm --query --requires --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm | gre
 
 [source,nocopy]
 ----
-python(abi) = 3.9
+python(abi) = 3.12
 ----
 
 Expand the next section header to continue the challenge.
 
+====
+
 == Build with mock from a spec file
+
+[%collapsible]
+====
 
 In addition to rebuilding source packages, *mock* is also able to build
 directly from a spec file and the corresponding sources. Before you do
@@ -232,3 +242,5 @@ Hello World! on the command line.
 
 That concludes this challenge, which is the final challenge for this
 track.
+
+====

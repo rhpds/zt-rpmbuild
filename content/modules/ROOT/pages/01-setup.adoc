@@ -19,6 +19,9 @@ section headers below to work on each section of this challenge.
 
 == Installing the necessary packages
 
+[%collapsible]
+====
+
 Install the *rpmdevtools* and *rpmlint* packages.
 
 [source,bash]
@@ -43,7 +46,12 @@ Installing dependencies:
 
 Expand the next section header to continue the challenge.
 
+====
+
 == Defining the %packager macro
+
+[%collapsible]
+====
 
 Define the *%packager* macro in the *~/.rpmmacros* file. This will be
 used later when you generate *changelog* entries. You may use either
@@ -73,7 +81,12 @@ RHEL Redhat rhel@redhat.com>
 
 Expand the next section header to continue the challenge.
 
+====
+
 == Create the rpmbuild directory tree
+
+[%collapsible]
+====
 
 Finally, run the *rpmdev-setuptree* command to create the default
 directories for building packages.
@@ -106,3 +119,5 @@ rpmbuild
 That concludes this challenge. In the next challenge, you will build
 your first package using this environment and the tools that you
 installed.
+
+====
