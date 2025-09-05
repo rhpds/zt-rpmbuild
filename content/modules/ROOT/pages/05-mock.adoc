@@ -154,7 +154,7 @@ rpm --query --requires --package /var/lib/mock/rhel-8-x86_64/result/pello-1.0.4-
 
 [source,nocopy]
 ----
-python(abi) = 3.12
+python(abi) = 3.6
 ----
 
 Now do the same for the package you built earlier with *rpmbuild*. The
