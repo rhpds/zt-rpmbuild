@@ -63,7 +63,7 @@ that file manually with a command-line text editor such as vim or nano.
 
 [source,bash]
 ----
-echo '%packager RHEL Redhat rhel@redhat.com' >> ~/.rpmmacros
+echo '%packager RHEL Redhat <rhel@redhat.com>' >> ~/.rpmmacros
 ----
 
 Use the *rpm* command to expand the macro to validate that it is defined
@@ -76,7 +76,7 @@ rpm --eval '%packager'
 
 [source,nocopy]
 ----
-RHEL Redhat rhel@redhat.com>
+RHEL Redhat <rhel@redhat.com>
 ----
 
 Expand the next section header to continue the challenge.
