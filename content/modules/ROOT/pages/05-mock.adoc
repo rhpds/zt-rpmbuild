@@ -2,7 +2,7 @@
 
 Your final challenge is to build the *pello* package with *mock* instead
 of *rpmbuild*. This will allow you to build a package that is compatible
-with RHEL 8, even though the build host is RHEL 9.
+with RHEL 8, even though the build host is RHEL 10.
 
 This challenge uses files that you created during the *pello* challenge,
 so if you skipped it you need to go back and complete it by clicking the
