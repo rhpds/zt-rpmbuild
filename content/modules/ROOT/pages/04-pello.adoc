@@ -293,19 +293,6 @@ Expand the next section header to continue the challenge.
 [%collapsible]
 ====
 
-Before starting the *rpmbuild* process, use the *rpmlint* command to
-check for common problems in your spec file.
-
-[source,bash]
-----
-rpmlint SPECS/pello.spec
-----
-
-[source,nocopy]
-----
-0 packages and 1 specfiles checked; 0 errors, 0 warnings.
-----
-
 Install the build requirements with the *dnf builddep* command.
 
 [source,bash]
@@ -351,8 +338,6 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.npnz0l
 ++ jobs -p
 + exit 0
 ----
-
-You can inspect these packages using the *rpm* and *rpmlint* commands.
 
 Use the *rpm* command to list the contents of the source package.
 
@@ -400,21 +385,6 @@ rpm --query --list --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
 /usr/share/doc/pello/README.md
 /usr/share/licenses/pello
 /usr/share/licenses/pello/LICENSE.txt
-----
-
-Use the *rpmlint* command to check for common problems in the package.
-You will see a warning about *no-manual-page-for-binary*. This warnings
-is expected in this case because *pello* did not include a man page.
-
-[source,bash]
-----
-rpmlint RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
-----
-
-[source,nocopy]
-----
-pello.noarch: W: no-manual-page-for-binary pello_greeting
-1 packages and 0 specfiles checked; 0 errors, 1 warnings.
 ----
 
 Now that your package is built, you can install it on the system.
