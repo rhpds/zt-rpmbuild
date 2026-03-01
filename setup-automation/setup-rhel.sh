@@ -2,10 +2,6 @@
 
 # dnf -y install bash-completion dnf-plugins-core nano tree vim-enhanced wget
 
-echo "always ignore invalid-url rpmlint warnings"
-mkdir /etc/rpmlint
-echo 'addFilter("W: invalid-url")' >> /etc/rpmlint/invalid-url.config
-
 # echo "giving rhel user sudo permission"
 # echo 'rhel ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/rhel
 

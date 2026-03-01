@@ -268,19 +268,6 @@ Expand the next section header to continue the challenge.
 [%collapsible]
 ====
 
-Before starting the *rpmbuild* process, use the *rpmlint* command to
-check for common problems in your spec file.
-
-[source,bash]
-----
-rpmlint SPECS/cello.spec
-----
-
-[source,nocopy]
-----
-0 packages and 1 specfiles checked; 0 errors, 0 warnings.
-----
-
 Because this package has build requirements defined in the preamble, you
 must install them before building the package.
 
@@ -335,8 +322,6 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.HECHUO
 + exit 0
 ----
 
-You can inspect these packages using the *rpm* and *rpmlint* commands.
-
 Use the *rpm* command to list the contents of the source package. In
 addition to the spec file and source code archive, the patch file is
 also included.
@@ -371,24 +356,6 @@ rpm --query --list --package RPMS/x86_64/cello-1.0-1.el10.x86_64.rpm
 /usr/lib/.build-id/02/b01f3ddde0567897e80bb2ffd0172dd444e404
 /usr/share/licenses/cello
 /usr/share/licenses/cello/LICENSE
-----
-
-Use the *rpmlint* command to check for common problems in the package.
-You will see warnings about *no-documentation* and
-*no-manual-page-for-binary*. These warnings are expected in this case
-because the *cello* software did not include any documentation files or
-a man page.
-
-[source,bash]
-----
-rpmlint RPMS/x86_64/cello-1.0-1.el10.x86_64.rpm
-----
-
-[source,nocopy]
-----
-cello.x86_64: W: no-documentation
-cello.x86_64: W: no-manual-page-for-binary cello
-1 packages and 0 specfiles checked; 0 errors, 2 warnings.
 ----
 
 Now that your package is built, you can install it on the system.

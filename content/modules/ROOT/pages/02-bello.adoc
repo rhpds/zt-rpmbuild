@@ -278,22 +278,10 @@ Expand the next section header to continue the challenge.
 
 [%collapsible]
 ====
-Before starting the *rpmbuild* process, use the *rpmlint* command to
-check for common problems in your spec file.
 
-[source,bash]
-----
-rpmlint SPECS/bello.spec
-----
-
-[source,nocopy]
-----
-0 packages and 1 specfiles checked; 0 errors, 0 warnings.
-----
-
-With a clean linting of your SPEC file, it is time to build the package
-with the *rpmbuild* command. This will create a package and a source
-package in the appropriate directories in your packaging workspace.
+You can now build the package with the *rpmbuild* command. This will create a
+package and a source package in the appropriate directories in your packaging
+workspace.
 
 [source,bash]
 ----
@@ -313,8 +301,6 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.ljskTE
 ++ jobs -p
 + exit 0
 ----
-
-You can inspect these packages using the *rpm* and *rpmlint* commands.
 
 Use the *rpm* command to list the contents of the source package. You’ll
 notice this includes the spec file and source code archive.
@@ -342,24 +328,6 @@ rpm --query --list --package RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 /usr/bin/bello
 /usr/share/licenses/bello
 /usr/share/licenses/bello/LICENSE
-----
-
-Use the *rpmlint* command to check for common problems in the package.
-You will see warnings about *no-documentation* and
-*no-manual-page-for-binary*. These warnings are expected in this case
-because the *bello* software did not include any documentation files or
-a man page.
-
-[source,bash]
-----
-rpmlint RPMS/noarch/bello-0.1-1.el10.noarch.rpm
-----
-
-[source,nocopy]
-----
-bello.noarch: W: no-documentation
-bello.noarch: W: no-manual-page-for-binary bello
-1 packages and 0 specfiles checked; 0 errors, 2 warnings.
 ----
 
 Now that your package is built, you can install it on the system.
