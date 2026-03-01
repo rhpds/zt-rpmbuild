@@ -113,7 +113,7 @@ line (*#!/bin/bash*).
 ----
 cat >> SPECS/bello.spec << EOF
 Summary:        Hello World example implemented in bash script
-License:        GPLv3+
+License:        GPL-3.0-or-later
 URL:            https://github.com/redhat-developer/rpm-packaging-guide
 Source:         %{url}/raw/master/example-code/bello-%{version}.tar.gz
 BuildArch:      noarch
@@ -246,7 +246,7 @@ Name:           bello
 Version:        0.1
 Release:        1%{?dist}
 Summary:        Hello World example implemented in bash script
-License:        GPLv3+
+License:        GPL-3.0-or-later
 URL:            https://github.com/redhat-developer/rpm-packaging-guide
 Source:         %{url}/raw/master/example-code/bello-%{version}.tar.gz
 BuildArch:      noarch
