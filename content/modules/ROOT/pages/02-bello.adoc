@@ -10,7 +10,7 @@ challenge.
 ====
 Navigate to the *rpmbuild* directory.
 
-[source,bash]
+[source,bash,run]
 ----
 cd rpmbuild
 ----
@@ -20,7 +20,7 @@ The source code archive for *bello* is located at
 
 Move the source code archive into the *SOURCES* directory.
 
-[source,bash]
+[source,bash,run]
 ----
 mv -v /home/rhel/downloads/bello-0.1.tar.gz SOURCES/
 ----
@@ -33,7 +33,7 @@ renamed '/home/rhel/downloads/bello-0.1.tar.gz' -> 'SOURCES/bello-0.1.tar.gz'
 Verify the source code archive is in the correct location. The filename
 will be displayed in red text to indicate that it is a compressed file.
 
-[source,bash]
+[source,bash,run]
 ----
 ls SOURCES/bello*
 ----
@@ -87,7 +87,7 @@ contents of the spec file. If you like, you can write the same content
 to that file manually with a command-line text editor such as vim or
 nano.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
 Name:           bello
@@ -109,7 +109,7 @@ requires *bash*, however, this dependency will be added automatically in
 the resulting package because the *bello* script starts with a shebang
 line (*#!/bin/bash*).
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
 Summary:        Hello World example implemented in bash script
@@ -126,7 +126,7 @@ description of the package that may span multiple lines if needed.
 
 Add a sentence describing the software included in the package.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
 
@@ -142,7 +142,7 @@ steps needed to prepare the source code for building the software.
 
 Add the *%autosetup* macro, which will extract the source code archive.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
 
@@ -158,7 +158,7 @@ Because *bello* is a bash script, there is nothing to compile. This
 means that this part will be empty, but it still needs to exist to avoid
 warnings.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
 
@@ -176,7 +176,7 @@ creating parent directories as needed. The *%\{_bindir}* macro expands
 to */usr/bin*, which is where the script will be on a system that
 installs this package.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
 
@@ -200,7 +200,7 @@ You will also list the rest of the files that are expected to be on the
 target system, based on the contents of the *%\{buildroot}*. In this
 case that is just the *bello* script in */usr/bin*.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
 
@@ -216,7 +216,7 @@ releases.
 
 Leave this empty for now.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
 
@@ -228,14 +228,14 @@ Use the *rpmdev-bumpspec* tool to create a changelog entry. This tool
 will also change the *Version* field in the preamble to the correct
 value.
 
-[source,bash]
+[source,bash,run]
 ----
 rpmdev-bumpspec --new 0.1 --comment 'Initial package' SPECS/bello.spec
 ----
 
 Review the spec file you have written.
 
-[source,bash]
+[source,bash,run]
 ----
 cat SPECS/bello.spec
 ----
@@ -283,7 +283,7 @@ You can now build the package with the *rpmbuild* command. This will create a
 package and a source package in the appropriate directories in your packaging
 workspace.
 
-[source,bash]
+[source,bash,run]
 ----
 rpmbuild -ba SPECS/bello.spec
 ----
@@ -305,7 +305,7 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.ljskTE
 Use the *rpm* command to list the contents of the source package. You’ll
 notice this includes the spec file and source code archive.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --list --package SRPMS/bello-0.1-1.el10.src.rpm
 ----
@@ -318,7 +318,7 @@ bello.spec
 
 Use the *rpm* command to list the contents of the package.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --list --package RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 ----
@@ -332,7 +332,7 @@ rpm --query --list --package RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 
 Now that your package is built, you can install it on the system.
 
-[source,bash]
+[source,bash,run]
 ----
 sudo dnf -y install RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 ----
@@ -347,7 +347,7 @@ Installing:
 
 Finally, run the *bello* program.
 
-[source,bash]
+[source,bash,run]
 ----
 bello
 ----

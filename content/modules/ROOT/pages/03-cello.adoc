@@ -13,7 +13,7 @@ challenge.
 ====
 Navigate to the *rpmbuild* directory.
 
-[source,bash]
+[source,bash,run]
 ----
 cd /home/rhel/rpmbuild
 ----
@@ -27,7 +27,7 @@ first patch!`". You will be able to observe this output after you build
 and install the package. Move these source files into the *SOURCES*
 directory.
 
-[source,bash]
+[source,bash,run]
 ----
 mv -v ~/downloads/cello-1.0.tar.gz ~/downloads/cello-output-first-patch.patch SOURCES/
 ----
@@ -41,7 +41,7 @@ renamed '/home/rhel/downloads/cello-output-first-patch.patch' -> 'SOURCES/cello-
 Verify the source code archive and patch file are in the correct
 location.
 
-[source,bash]
+[source,bash,run]
 ----
 ls SOURCES/cello*
 ----
@@ -76,7 +76,7 @@ Define the *NVR* (*Name*, *Version*, *Release*) of the package. For now,
 set the version to *0*, even though this does not match the version of
 the software. You will set this to the correct version in a future step.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/cello.spec << EOF
 Name:           cello
@@ -96,7 +96,7 @@ compiled for specific architectures. *BuildArch* will be automatically
 defined based on the architecture of the machine you build the package
 on.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/cello.spec << EOF
 Summary:        Hello World example implemented in C
@@ -113,7 +113,7 @@ The last part of the preamble is *%description*.
 
 Add a sentence describing the software included in the package.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/cello.spec << EOF
 
@@ -130,7 +130,7 @@ steps needed to prepare the source code for building the software.
 Add the *%autosetup* macro, which will extract the source code archive
 and apply the patch file defined in the preamble.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/cello.spec << EOF
 
@@ -150,7 +150,7 @@ instructions from *cello*’s Makefile.
 Add the *%make_build* macro, which will run the *make* command with
 packaging-specific options.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/cello.spec << EOF
 
@@ -167,7 +167,7 @@ Add the *%make_install* macro, which will run the *make install* command
 with packaging-specific options. This will copy files into the
 *%\{buildroot}*.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/cello.spec << EOF
 
@@ -185,7 +185,7 @@ You will also list the rest of the files that are expected to be on the
 target system, based on the contents of the *%\{buildroot}*. In this
 case that is just the *cello* executable in */usr/bin*.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/cello.spec << EOF
 
@@ -201,7 +201,7 @@ releases.
 
 Leave this empty for now.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/cello.spec << EOF
 
@@ -213,14 +213,14 @@ Use the *rpmdev-bumpspec* tool to create a changelog entry. This tool
 will also change the *Version* field in the preamble to the correct
 value.
 
-[source,bash]
+[source,bash,run]
 ----
 rpmdev-bumpspec --new 1.0 --comment 'Initial package' SPECS/cello.spec
 ----
 
 Review the spec file you have written.
 
-[source,bash]
+[source,bash,run]
 ----
 cat SPECS/cello.spec
 ----
@@ -273,7 +273,7 @@ must install them before building the package.
 
 Install the build requirements with the *dnf builddep* command.
 
-[source,bash]
+[source,bash,run]
 ----
 sudo dnf -y builddep SPECS/cello.spec
 ----
@@ -300,7 +300,7 @@ Because this package contains a compiled binary, special debug packages
 (*cello-debuginfo* and *cello-debugsource*) will also be created. You
 can ignore these during this lab.
 
-[source,bash]
+[source,bash,run]
 ----
 rpmbuild -ba SPECS/cello.spec
 ----
@@ -326,7 +326,7 @@ Use the *rpm* command to list the contents of the source package. In
 addition to the spec file and source code archive, the patch file is
 also included.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --list --package SRPMS/cello-1.0-1.el10.src.rpm
 ----
@@ -343,7 +343,7 @@ package contains a compiled binary, it will include some additional
 files and directories under */usr/lib/.build-id* that were added
 automatically.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --list --package RPMS/x86_64/cello-1.0-1.el10.x86_64.rpm
 ----
@@ -360,7 +360,7 @@ rpm --query --list --package RPMS/x86_64/cello-1.0-1.el10.x86_64.rpm
 
 Now that your package is built, you can install it on the system.
 
-[source,bash]
+[source,bash,run]
 ----
 sudo dnf -y install RPMS/x86_64/cello-1.0-1.el10.x86_64.rpm
 ----
@@ -377,7 +377,7 @@ Finally, run the *cello* program. Notice how the output includes the
 modified message from our patch file. If you built this package again
 without the patch file, the output would be "`Hello World!`" instead.
 
-[source,bash]
+[source,bash,run]
 ----
 cello
 ----

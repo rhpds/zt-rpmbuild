@@ -87,7 +87,7 @@ Adding user root to group mock
 
 You can use the *groups* command to verify the group membership.
 
-[source,bash]
+[source,bash,run]
 ----
 groups rhel
 ----

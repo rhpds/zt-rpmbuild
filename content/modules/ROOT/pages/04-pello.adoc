@@ -14,7 +14,7 @@ challenge.
 ====
 Navigate to the *rpmbuild* directory.
 
-[source,bash]
+[source,bash,run]
 ----
 cd /home/rhel/rpmbuild
 ----
@@ -23,7 +23,7 @@ The source code archive for pello is located at
 *~/downloads/Pello-1.0.4.tar.gz* on your system. Move the source code
 archive into the *SOURCES* directory.
 
-[source,bash]
+[source,bash,run]
 ----
 mv -v ~/downloads/Pello-1.0.4.tar.gz SOURCES/
 ----
@@ -35,7 +35,7 @@ renamed '/home/rhel/downloads/Pello-1.0.4.tar.gz' -> 'SOURCES/Pello-1.0.4.tar.gz
 
 Verify the source code archive is in the correct location.
 
-[source,bash]
+[source,bash,run]
 ----
 ls SOURCES/Pello*
 ----
@@ -58,7 +58,7 @@ Define the *NVR* (*Name*, *Version*, *Release*) of the package. For now,
 set the version to *0*, even though this does not match the version of
 the software. You will set this to the correct version in a future step.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 Name:           pello
@@ -81,7 +81,7 @@ You might think you need to add a *Requires* to indicate this software
 requires *python3*, but similar to *bello*’s dependency on *bash*, this
 dependency will be added automatically.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 Summary:        An example Python Hello World package
@@ -99,7 +99,7 @@ The last part of the preamble is *%description*.
 
 Add a few sentences describing the software included in the package.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 
@@ -120,7 +120,7 @@ Note that you will need to use the *-n* flag to indicate that the top
 level directory of the source code archive doesn’t match the default
 *%\{name}-%\{version}* due to the capital P.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 
@@ -138,7 +138,7 @@ compiled to byte code.
 Add the *%py3_build* macro, which will run *python3 setup.py build* with
 packaging-specific options.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 
@@ -155,7 +155,7 @@ Add the *%py3_install* macro, which will run the *python3 setup.py
 install* command with packaging-specific options. This will copy files
 into the *%\{buildroot}*.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 
@@ -171,7 +171,7 @@ running the upstream unit tests.
 Add the *%pytest* macro, which will run the *pytest* command with
 packaging-specific options.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 
@@ -198,7 +198,7 @@ files in the *%\{python3_sitelib}*, which expands to
 wildcard for paths that may be different depending on which operating
 system the package is built for.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 
@@ -217,7 +217,7 @@ releases.
 
 Leave this empty for now.
 
-[source,bash]
+[source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 
@@ -229,14 +229,14 @@ Use the *rpmdev-bumpspec* tool to create a changelog entry. This tool
 will also change the *Version* field in the preamble to the correct
 value.
 
-[source,bash]
+[source,bash,run]
 ----
 rpmdev-bumpspec --new 1.0.4 --comment 'Initial package' SPECS/pello.spec
 ----
 
 Review the spec file you have written.
 
-[source,bash]
+[source,bash,run]
 ----
 cat SPECS/pello.spec
 ----
@@ -295,7 +295,7 @@ Expand the next section header to continue the challenge.
 
 Install the build requirements with the *dnf builddep* command.
 
-[source,bash]
+[source,bash,run]
 ----
 sudo dnf -y builddep SPECS/pello.spec
 ----
@@ -319,7 +319,7 @@ Once the build requirements are installed, you can build the package
 using the *rpmbuild* command. This will create a package and a source
 package in the appropriate directories in your packaging workspace.
 
-[source,bash]
+[source,bash,run]
 ----
 rpmbuild -ba SPECS/pello.spec
 ----
@@ -341,7 +341,7 @@ Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.npnz0l
 
 Use the *rpm* command to list the contents of the source package.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --list --package SRPMS/pello-1.0.4-1.el10.src.rpm
 ----
@@ -354,7 +354,7 @@ pello.spec
 
 Use the *rpm* command to list the contents of the package.
 
-[source,bash]
+[source,bash,run]
 ----
 rpm --query --list --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
 ----
@@ -389,7 +389,7 @@ rpm --query --list --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
 
 Now that your package is built, you can install it on the system.
 
-[source,bash]
+[source,bash,run]
 ----
 sudo dnf -y install RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
 ----
@@ -404,7 +404,7 @@ Installing:
 
 Finally, run the *pello_greeting* program.
 
-[source,bash]
+[source,bash,run]
 ----
 pello_greeting
 ----
