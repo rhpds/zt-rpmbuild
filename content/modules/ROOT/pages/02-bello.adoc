@@ -107,11 +107,6 @@ below uses the *%\{url}* macro, which will expand to the value you set
 in the *URL* tag. Define *BuildArch* as *noarch* to mark the package as
 architecture-independent.
 
-You might think you need to add a *Requires* to indicate the software
-requires *bash*, however, this dependency will be added automatically in
-the resulting package because the *bello* script starts with a shebang
-line (*#!/bin/bash*).
-
 [source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF

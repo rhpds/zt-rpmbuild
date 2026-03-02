@@ -77,10 +77,6 @@ package as architecture-independent. Add build requirements for
 build the software. Also add a build requirement for *python3-pytest*,
 which will be used to run the upstream unit tests.
 
-You might think you need to add a *Requires* to indicate this software
-requires *python3*, but similar to *bello*'s dependency on *bash*, this
-dependency will be added automatically.
-
 [source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
