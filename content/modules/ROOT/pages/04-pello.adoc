@@ -67,24 +67,26 @@ Release:        1%{?dist}
 EOF
 ----
 
-Next, define the *Summary*, *License*, and *URL* for the software.
-*Pello* is available from the PyPI website, so instead of defining
-*Source* directly you can use the *%pypi_source* macro to generate the
-link. The last portion of this link (the file name) will match the
-source code archive located in *SOURCES*. Define *BuildArch* to mark the
-package as architecture-independent. Add build requirements for
-*python3-devel* and *python3-setuptools* since these will be needed to
-build the software. Also add a build requirement for *python3-pytest*,
-which will be used to run the upstream unit tests.
+Define *BuildArch* as *noarch* to mark the package as architecture
+independent.  Define the *Summary*, *License*, and *URL* for the
+software.  *Pello* is available from the PyPI website, so instead of
+defining *Source* directly you can use the *%pypi_source* macro to
+generate the link.  The last portion of this link (the file name) will
+match the source code archive located in *SOURCES*.
+
+Add build requirements for *python3-devel* and *python3-setuptools*
+since these will be needed to build the software.  Also add a build
+requirement for *python3-pytest*, which will be used to run the upstream
+unit tests.
 
 [source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
+BuildArch:      noarch
 Summary:        An example Python Hello World package
 License:        MIT
 URL:            https://github.com/fedora-python/Pello
 Source:         %{pypi_source Pello}
-BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pytest
@@ -242,11 +244,11 @@ cat SPECS/pello.spec
 Name:           pello
 Version:        1.0.4
 Release:        1%{?dist}
+BuildArch:      noarch
 Summary:        An example Python Hello World package
 License:        MIT
 URL:            https://github.com/fedora-python/Pello
 Source:         %{pypi_source Pello}
-BuildArch:      noarch
 BuildRequires:  python3-devel
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pytest

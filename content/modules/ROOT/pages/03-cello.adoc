@@ -85,16 +85,17 @@ Release:        1%{?dist}
 EOF
 ----
 
-Next, define the *Summary*, *License*, and *URL* of the software. Define
+Unlike the *bello* spec file, you will *not* define *BuildArch* as
+*noarch*.  This is because this application is natively compiled for
+specific architectures.  *BuildArch* will be automatically defined based
+on the architecture of the machine you build the package on.
+
+Define the *Summary*, *License*, and *URL* of the software.  Define
 *Source* as the link where one may download the source code archive if
 they did not have it, making sure the last segment matches our source
-code archive filename. Define *Patch* as the patch file name. Add build
-requirements for *gcc* and *make* since these will be needed to build
-the software. Unlike the *bello* spec file, you will *not* define
-*BuildArch* as *noarch*. This is because this application is natively
-compiled for specific architectures. *BuildArch* will be automatically
-defined based on the architecture of the machine you build the package
-on.
+code archive filename.  Define *Patch* as the patch file name.  Add
+build requirements for *gcc* and *make* since these will be needed to
+build the software.
 
 [source,bash,run]
 ----

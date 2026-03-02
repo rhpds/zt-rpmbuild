@@ -67,6 +67,8 @@ use for the *bello* package.
 |Release |used to distinguish between different builds of the same
 software version
 
+|BuildArch |CPU architecture on which this software is compiled to run
+
 |Summary |short one line summary of the package
 
 |License |identifier for the license that governs the use and
@@ -75,8 +77,6 @@ distribution of the software
 |URL |homepage for the project or author of the software
 
 |Source |file name or URL of a file needed to build the software
-
-|BuildArch |CPU architecture on which this software is compiled to run
 |===
 
 Define the *Name*, *Version*, and *Release* of the package. These
@@ -99,22 +99,22 @@ Release:        1%{?dist}
 EOF
 ----
 
-Next, define the *Summary*, *License*, and *URL* for the software.
-Define *Source* as the link where one may download the source code
-archive if they did not already have it, making sure the last segment
-matches our source code archive filename. Note that the *Source* tag
-below uses the *%\{url}* macro, which will expand to the value you set
-in the *URL* tag. Define *BuildArch* as *noarch* to mark the package as
-architecture-independent.
+Define *BuildArch* as *noarch* to mark the package as architecture
+independent.  Define the *Summary*, *License*, and *URL* for the
+software.  Define *Source* as the link where one may download the source
+code archive if they did not already have it, making sure the last
+segment matches our source code archive filename. Note that the *Source*
+tag below uses the *%\{url}* macro, which will expand to the value you
+set in the *URL* tag.
 
 [source,bash,run]
 ----
 cat >> SPECS/bello.spec << EOF
+BuildArch:      noarch
 Summary:        Hello World example implemented in bash script
 License:        GPL-3.0-or-later
 URL:            https://github.com/redhat-developer/rpm-packaging-guide
 Source:         %{url}/raw/master/example-code/bello-%{version}.tar.gz
-BuildArch:      noarch
 EOF
 ----
 
@@ -232,11 +232,11 @@ cat SPECS/bello.spec
 Name:           bello
 Version:        0.1
 Release:        1%{?dist}
+BuildArch:      noarch
 Summary:        Hello World example implemented in bash script
 License:        GPL-3.0-or-later
 URL:            https://github.com/redhat-developer/rpm-packaging-guide
 Source:         %{url}/raw/master/example-code/bello-%{version}.tar.gz
-BuildArch:      noarch
 
 %description
 The long description for our Hello World Example implemented in bash script.
