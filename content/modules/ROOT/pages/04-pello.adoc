@@ -84,7 +84,7 @@ unit tests.
 cat >> SPECS/pello.spec << EOF
 BuildArch:      noarch
 Summary:        An example Python Hello World package
-License:        MIT
+License:        MIT-0
 URL:            https://github.com/fedora-python/Pello
 Source:         %{pypi_source Pello}
 BuildRequires:  python3-devel
@@ -246,7 +246,7 @@ Version:        1.0.4
 Release:        1%{?dist}
 BuildArch:      noarch
 Summary:        An example Python Hello World package
-License:        MIT
+License:        MIT-0
 URL:            https://github.com/fedora-python/Pello
 Source:         %{pypi_source Pello}
 BuildRequires:  python3-devel
