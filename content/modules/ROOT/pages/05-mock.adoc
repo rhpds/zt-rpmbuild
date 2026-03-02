@@ -180,7 +180,7 @@ Use *rpm* to inspect the resulting package.
 
 [source,bash,run]
 ----
-rpm --query --info --package /var/lib/mock/rhel-9-x86_64/result/pello-1.0.4-2.el8.noarch.rpm
+rpm --query --info --package /var/lib/mock/rhel-9-x86_64/result/pello-1.0.4-2.el9.noarch.rpm
 ----
 
 [source,nocopy]
