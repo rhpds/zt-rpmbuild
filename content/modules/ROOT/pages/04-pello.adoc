@@ -295,6 +295,11 @@ Expand the next section header to continue the challenge.
 [%collapsible]
 ====
 
+NOTE: Some of the build requirements are in the CodeReady Builder
+repository.  On RHEL this repository is available by default, but not
+enabled by default.  In this lab environment it has already been enabled
+for you.
+
 Install the build requirements with the *dnf builddep* command.
 
 [source,bash,run]

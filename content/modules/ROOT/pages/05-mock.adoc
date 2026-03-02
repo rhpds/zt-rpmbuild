@@ -16,42 +16,12 @@ challenge.
 [%collapsible]
 ====
 
-Mock is not part of RHEL. It is available from the EPEL (Extra Packages
-for Enterprise Linux) repository. Some packages in EPEL have
-dependencies from the CodeReady Builder repository.
+NOTE: Mock is not part of RHEL.  It is available from the EPEL (Extra
+Packages for Enterprise Linux) repository.  This is a third-party
+repository that is not available by default in RHEL.  In this lab
+environment it has already been enabled for you.
 
-Use the *subscription-manager* command to enable the CodeReady Builder
-repository.
-
-[source,bash,run]
-----
-sudo subscription-manager repos --enable codeready-builder-for-rhel-10-x86_64-rpms
-----
-
-[source,nocopy]
-----
-Repository 'codeready-builder-for-rhel-9-x86_64-rpms' is enabled for this system.
-----
-
-Enable the EPEL repository. This is accomplished by installing the
-*epel-release* package.
-
-NOTE: The EPEL repository is already enabled. You may run the command below to confirm.
-
-[source,bash,run]
-----
-sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-10.noarch.rpm
-----
-
-[source,nocopy]
-----
-### OUTPUT ABRIDGED ###
-Installing:
- epel-release            noarch            10-7.el10_1               @commandline             19 k
-### OUTPUT ABRIDGED ###
-----
-
-Install the *mock* package from EPEL.
+Install the *mock* package from the EPEL repository.
 
 [source,bash,run]
 ----
