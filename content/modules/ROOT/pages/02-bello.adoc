@@ -149,20 +149,9 @@ cat >> SPECS/bello.spec << EOF
 EOF
 ----
 
-The next part of the spec file is *%build*. This is used to perform any
-steps needed to build the software.
-
-Because *bello* is a bash script, there is nothing to compile. This
-means that this part will be empty, but it still needs to exist to avoid
-warnings.
-
-[source,bash,run]
-----
-cat >> SPECS/bello.spec << EOF
-
-%build
-EOF
-----
+Typically the next part of the spec file is *%build*. This is used to
+perform any steps needed to build the software.  However, since *bello*
+is a bash script, there is nothing to compile and you can skip it.
 
 The next part of the spec file is *%install*. This is used to perform
 any steps needed to place files and directories into the appropriate
@@ -254,8 +243,6 @@ The long description for our Hello World Example implemented in bash script.
 
 %prep
 %autosetup
-
-%build
 
 %install
 install -D -p -m 0755 bello %{buildroot}%{_bindir}/bello
