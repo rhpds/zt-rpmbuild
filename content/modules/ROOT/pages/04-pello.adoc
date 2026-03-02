@@ -74,10 +74,10 @@ defining *Source* directly you can use the *%pypi_source* macro to
 generate the link.  The last portion of this link (the file name) will
 match the source code archive located in *SOURCES*.
 
-Add build requirements for *python3-devel* and *python3-setuptools*
-since these will be needed to build the software.  Also add a build
-requirement for *python3-pytest*, which will be used to run the upstream
-unit tests.
+Add build requirements for the packages needed to build the software:
+*python3-devel*, *pyproject-rpm-macros*, *python3-wheel*, *python3-pip*,
+and *python3-setuptools*.  Also add a build requirement for
+*python3-pytest*, which will be used to run the upstream unit tests.
 
 [source,bash,run]
 ----
@@ -88,6 +88,9 @@ License:        MIT-0
 URL:            https://github.com/fedora-python/Pello
 Source:         %{pypi_source Pello}
 BuildRequires:  python3-devel
+BuildRequires:  pyproject-rpm-macros
+BuildRequires:  python3-wheel
+BuildRequires:  python3-pip
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pytest
 EOF
@@ -133,7 +136,7 @@ steps needed to build the software.
 *Pello* is an architecture-independent program, but it does need to be
 compiled to byte code.
 
-Add the *%py3_build* macro, which will run *python3 setup.py build* with
+Add the *%pyproject_wheel* macro, which will build a Python wheel with
 packaging-specific options.
 
 [source,bash,run]
@@ -141,7 +144,7 @@ packaging-specific options.
 cat >> SPECS/pello.spec << EOF
 
 %build
-%py3_build
+%pyproject_wheel
 EOF
 ----
 
@@ -149,16 +152,15 @@ The next part of the spec file is *%install*. This is used to perform
 any steps needed to place files and directories into the appropriate
 locations, relative to the *%\{buildroot}*.
 
-Add the *%py3_install* macro, which will run the *python3 setup.py
-install* command with packaging-specific options. This will copy files
-into the *%\{buildroot}*.
+Add the *%pyproject_install* macro, which will use the Python wheel to
+install files into the *%\{buildroot}*.
 
 [source,bash,run]
 ----
 cat >> SPECS/pello.spec << EOF
 
 %install
-%py3_install
+%pyproject_install
 EOF
 ----
 
@@ -185,16 +187,14 @@ Add the *LICENSE.txt* file with the *%license* attribute. Similar to the
 *%license* attribute, there is also a *%doc* attribute to mark files as
 documentation in the package metadata. The notable difference between
 these attributes is that *dnf* can be configured to skip documentation
-files, but license files must always be included. Add the *README.md*
+files, but license files are always included.  Add the *README.md*
 file with the *%doc* attribute.
 
 You will also list the rest of the files that are expected to be on the
 target system, based on the contents of the *%\{buildroot}*. In addition
 to the *pello_greeting* file in */usr/bin*, you also need to list the
 files in the *%\{python3_sitelib}*, which expands to
-*/usr/lib/python3.12/site-packages*. Note that you can use *** as a
-wildcard for paths that may be different depending on which operating
-system the package is built for.
+*/usr/lib/python3.12/site-packages*.
 
 [source,bash,run]
 ----
@@ -204,8 +204,8 @@ cat >> SPECS/pello.spec << EOF
 %license LICENSE.txt
 %doc README.md
 %{_bindir}/pello_greeting
-%{python3_sitelib}/Pello-*.egg-info
 %{python3_sitelib}/pello
+%{python3_sitelib}/Pello-%{version}.dist-info
 EOF
 ----
 
@@ -250,6 +250,9 @@ License:        MIT-0
 URL:            https://github.com/fedora-python/Pello
 Source:         %{pypi_source Pello}
 BuildRequires:  python3-devel
+BuildRequires:  pyproject-rpm-macros
+BuildRequires:  python3-wheel
+BuildRequires:  python3-pip
 BuildRequires:  python3-setuptools
 BuildRequires:  python3-pytest
 
@@ -262,10 +265,10 @@ Hello World! on the command line.
 %autosetup -n Pello-%{version}
 
 %build
-%py3_build
+%pyproject_wheel
 
 %install
-%py3_install
+%pyproject_install
 
 %check
 %pytest
@@ -273,9 +276,9 @@ Hello World! on the command line.
 %files
 %license LICENSE.txt
 %doc README.md
-%{python3_sitelib}/Pello-*.egg-info
-%{python3_sitelib}/pello
 %{_bindir}/pello_greeting
+%{python3_sitelib}/pello
+%{python3_sitelib}/Pello-%{version}.dist-info
 
 %changelog
 * Mon Mar 02 2026 First Last <first@example.com> - 1.0.4-1
@@ -303,9 +306,12 @@ sudo dnf -y builddep SPECS/pello.spec
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
+ pyproject-rpm-macros   noarch 1.16.2-1.el10       codeready-builder-for-rhel-10-x86_64-rpms  48 k
  python3-devel          x86_64 3.12.12-3.el10_1    rhel-10-for-x86_64-appstream-rpms         336 k
+ python3-pip            noarch 23.3.2-7.el10       rhel-10-for-x86_64-appstream-rpms         3.2 M
  python3-pytest         noarch 7.4.3-5.el10        codeready-builder-for-rhel-10-x86_64-rpms 760 k
  python3-setuptools     noarch 69.0.3-12.el10_0    rhel-10-for-x86_64-baseos-rpms            1.6 M
+ python3-wheel          noarch 1:0.41.2-5.el10_1.1 codeready-builder-for-rhel-10-x86_64-rpms 173 k
 ### OUTPUT ABRIDGED ###
 ----
 
@@ -349,14 +355,13 @@ rpm --query --list --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
 [source,nocopy]
 ----
 /usr/bin/pello_greeting
-/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info
-/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/PKG-INFO
-/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/SOURCES.txt
-/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/dependency_links.txt
-/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/entry_points.txt
-/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/not-zip-safe
-/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/requires.txt
-/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/top_level.txt
+/usr/lib/python3.12/site-packages/Pello-1.0.4.dist-info
+/usr/lib/python3.12/site-packages/Pello-1.0.4.dist-info/INSTALLER
+/usr/lib/python3.12/site-packages/Pello-1.0.4.dist-info/LICENSE.txt
+/usr/lib/python3.12/site-packages/Pello-1.0.4.dist-info/METADATA
+/usr/lib/python3.12/site-packages/Pello-1.0.4.dist-info/WHEEL
+/usr/lib/python3.12/site-packages/Pello-1.0.4.dist-info/entry_points.txt
+/usr/lib/python3.12/site-packages/Pello-1.0.4.dist-info/top_level.txt
 /usr/lib/python3.12/site-packages/pello
 /usr/lib/python3.12/site-packages/pello/__init__.py
 /usr/lib/python3.12/site-packages/pello/__main__.py
@@ -385,7 +390,7 @@ sudo dnf -y install RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- pello              noarch              1.0.4-1.el10               @commandline               14 k
+ pello              noarch              1.0.4-1.el10               @commandline               13 k
 ### OUTPUT ABRIDGED ###
 ----
 
