@@ -78,9 +78,9 @@ distribution of the software
 
 Define the *Name*, *Version*, and *Release* of the package. These
 properties together form a useful identifier known as the *NVR*
-(e.g. *bash-5.1.8-9.el10*). For now, set the version to *0*, even though
-this does not match the version of the software. You will set this to
-the correct version in a future step.
+(e.g. *bash-5.2.26-6.el10*). For now, set the version to *0*, even
+though this does not match the version of the software. You will set
+this to the correct version in a future step.
 
 The command below uses what is called a "`here document`" to write the
 contents of the spec file. If you like, you can write the same content
@@ -267,7 +267,7 @@ install -D -p -m 0755 bello %{buildroot}%{_bindir}/bello
 %{_bindir}/bello
 
 %changelog
-* Fri Jan 26 2024 First Last <first@example.com> - 0.1-1
+* Mon Mar 02 2026 First Last <first@example.com> - 0.1-1
 - Initial package
 ----
 
@@ -335,7 +335,7 @@ sudo dnf -y install RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- bello         noarch         0.1-1.el10          @commandline         7.6 k
+ bello              noarch              0.1-1.el10                 @commandline              7.6 k
 ### OUTPUT ABRIDGED ###
 ----
 

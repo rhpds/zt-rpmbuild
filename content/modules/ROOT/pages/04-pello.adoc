@@ -194,7 +194,7 @@ You will also list the rest of the files that are expected to be on the
 target system, based on the contents of the *%\{buildroot}*. In addition
 to the *pello_greeting* file in */usr/bin*, you also need to list the
 files in the *%\{python3_sitelib}*, which expands to
-*/usr/lib/python3.9/site-packages*. Note that you can use *** as a
+*/usr/lib/python3.12/site-packages*. Note that you can use *** as a
 wildcard for paths that may be different depending on which operating
 system the package is built for.
 
@@ -280,7 +280,7 @@ Hello World! on the command line.
 %{_bindir}/pello_greeting
 
 %changelog
-* Fri Jan 26 2024 First Last <first@example.com> - 1.0.4-1
+* Mon Mar 02 2026 First Last <first@example.com> - 1.0.4-1
 - Initial package
 ----
 
@@ -304,8 +304,9 @@ sudo dnf -y builddep SPECS/pello.spec
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- python3-devel        x86_64   3.9.18-3.el10    rhel-9-for-x86_64-appstream-rpms           248 k
- python3-pytest       noarch   6.2.2-6.el10     codeready-builder-for-rhel-9-x86_64-rpms   525 k
+ python3-devel          x86_64 3.12.12-3.el10_1    rhel-10-for-x86_64-appstream-rpms         336 k
+ python3-pytest         noarch 7.4.3-5.el10        codeready-builder-for-rhel-10-x86_64-rpms 760 k
+ python3-setuptools     noarch 69.0.3-12.el10_0    rhel-10-for-x86_64-baseos-rpms            1.6 M
 ### OUTPUT ABRIDGED ###
 ----
 
@@ -349,25 +350,25 @@ rpm --query --list --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
 [source,nocopy]
 ----
 /usr/bin/pello_greeting
-/usr/lib/python3.9/site-packages/Pello-1.0.4-py3.9.egg-info
-/usr/lib/python3.9/site-packages/Pello-1.0.4-py3.9.egg-info/PKG-INFO
-/usr/lib/python3.9/site-packages/Pello-1.0.4-py3.9.egg-info/SOURCES.txt
-/usr/lib/python3.9/site-packages/Pello-1.0.4-py3.9.egg-info/dependency_links.txt
-/usr/lib/python3.9/site-packages/Pello-1.0.4-py3.9.egg-info/entry_points.txt
-/usr/lib/python3.9/site-packages/Pello-1.0.4-py3.9.egg-info/not-zip-safe
-/usr/lib/python3.9/site-packages/Pello-1.0.4-py3.9.egg-info/requires.txt
-/usr/lib/python3.9/site-packages/Pello-1.0.4-py3.9.egg-info/top_level.txt
-/usr/lib/python3.9/site-packages/pello
-/usr/lib/python3.9/site-packages/pello/__init__.py
-/usr/lib/python3.9/site-packages/pello/__main__.py
-/usr/lib/python3.9/site-packages/pello/__pycache__
-/usr/lib/python3.9/site-packages/pello/__pycache__/__init__.cpython-39.opt-1.pyc
-/usr/lib/python3.9/site-packages/pello/__pycache__/__init__.cpython-39.pyc
-/usr/lib/python3.9/site-packages/pello/__pycache__/__main__.cpython-39.opt-1.pyc
-/usr/lib/python3.9/site-packages/pello/__pycache__/__main__.cpython-39.pyc
-/usr/lib/python3.9/site-packages/pello/__pycache__/pello_greeting.cpython-39.opt-1.pyc
-/usr/lib/python3.9/site-packages/pello/__pycache__/pello_greeting.cpython-39.pyc
-/usr/lib/python3.9/site-packages/pello/pello_greeting.py
+/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info
+/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/PKG-INFO
+/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/SOURCES.txt
+/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/dependency_links.txt
+/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/entry_points.txt
+/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/not-zip-safe
+/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/requires.txt
+/usr/lib/python3.12/site-packages/Pello-1.0.4-py3.12.egg-info/top_level.txt
+/usr/lib/python3.12/site-packages/pello
+/usr/lib/python3.12/site-packages/pello/__init__.py
+/usr/lib/python3.12/site-packages/pello/__main__.py
+/usr/lib/python3.12/site-packages/pello/__pycache__
+/usr/lib/python3.12/site-packages/pello/__pycache__/__init__.cpython-312.opt-1.pyc
+/usr/lib/python3.12/site-packages/pello/__pycache__/__init__.cpython-312.pyc
+/usr/lib/python3.12/site-packages/pello/__pycache__/__main__.cpython-312.opt-1.pyc
+/usr/lib/python3.12/site-packages/pello/__pycache__/__main__.cpython-312.pyc
+/usr/lib/python3.12/site-packages/pello/__pycache__/pello_greeting.cpython-312.opt-1.pyc
+/usr/lib/python3.12/site-packages/pello/__pycache__/pello_greeting.cpython-312.pyc
+/usr/lib/python3.12/site-packages/pello/pello_greeting.py
 /usr/share/doc/pello
 /usr/share/doc/pello/README.md
 /usr/share/licenses/pello
@@ -385,7 +386,7 @@ sudo dnf -y install RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- pello        noarch        1.0.4-1.el10           @commandline         16 k
+ pello              noarch              1.0.4-1.el10               @commandline               14 k
 ### OUTPUT ABRIDGED ###
 ----
 

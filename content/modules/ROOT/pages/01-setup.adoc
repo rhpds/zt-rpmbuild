@@ -33,7 +33,7 @@ sudo dnf -y install rpmdevtools
 ----
 ### OUTPUT ABRIDGED ###
 Installing:
- rpmdevtools                   noarch   9.5-1.el10              rhel-9-for-x86_64-appstream-rpms    93 k
+ rpmdevtools                noarch   9.6-9.el10          rhel-10-for-x86_64-appstream-rpms    94 k
 ### OUTPUT ABRIDGED ###
 ----
 
