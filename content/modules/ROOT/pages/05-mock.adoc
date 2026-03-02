@@ -62,12 +62,6 @@ sudo dnf -y install mock
 ### OUTPUT ABRIDGED ###
 Installing:
  mock                noarch   5.5-1.el10        epel                               210 k
-Installing dependencies:
- conmon              x86_64   2:2.1.10-1.el10   rhel-9-for-x86_64-appstream-rpms    54 k
- containers-common   x86_64   2:1-91.el10_4     rhel-9-for-x86_64-appstream-rpms   142 k
- createrepo_c        x86_64   0.20.1-2.el10     rhel-9-for-x86_64-appstream-rpms    80 k
- createrepo_c-libs   x86_64   0.20.1-2.el10     rhel-9-for-x86_64-appstream-rpms   102 k
- criu                x86_64   3.19-1.el10       rhel-9-for-x86_64-appstream-rpms   563 k
 ### OUTPUT ABRIDGED ###
 ----
 

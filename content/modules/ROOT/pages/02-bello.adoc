@@ -290,16 +290,10 @@ rpmbuild -ba SPECS/bello.spec
 
 [source,nocopy]
 ----
+### OUTPUT ABRIDGED ###
 Wrote: /home/rhel/rpmbuild/SRPMS/bello-0.1-1.el10.src.rpm
 Wrote: /home/rhel/rpmbuild/RPMS/noarch/bello-0.1-1.el10.noarch.rpm
-Executing(%clean): /bin/sh -e /var/tmp/rpm-tmp.ljskTE
-+ umask 022
-+ cd /home/rhel/rpmbuild/BUILD
-+ cd bello-0.1
-+ /usr/bin/rm -rf /home/rhel/rpmbuild/BUILDROOT/bello-0.1-1.el10.x86_64
-+ RPM_EC=0
-++ jobs -p
-+ exit 0
+### OUTPUT ABRIDGED ###
 ----
 
 Use the *rpm* command to list the contents of the source package. You’ll
