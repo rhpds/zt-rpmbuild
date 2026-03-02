@@ -78,7 +78,7 @@ build the software. Also add a build requirement for *python3-pytest*,
 which will be used to run the upstream unit tests.
 
 You might think you need to add a *Requires* to indicate this software
-requires *python3*, but similar to *bello*’s dependency on *bash*, this
+requires *python3*, but similar to *bello*'s dependency on *bash*, this
 dependency will be added automatically.
 
 [source,bash,run]
@@ -117,7 +117,7 @@ steps needed to prepare the source code for building the software.
 
 Add the *%autosetup* macro, which will extract the source code archive.
 Note that you will need to use the *-n* flag to indicate that the top
-level directory of the source code archive doesn’t match the default
+level directory of the source code archive doesn't match the default
 *%\{name}-%\{version}* due to the capital P.
 
 [source,bash,run]
@@ -282,6 +282,7 @@ Hello World! on the command line.
 %changelog
 * Mon Mar 02 2026 First Last <first@example.com> - 1.0.4-1
 - Initial package
+
 ----
 
 Expand the next section header to continue the challenge.

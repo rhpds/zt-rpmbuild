@@ -6,6 +6,7 @@ Expand the section headers below to work on each section of this
 challenge.
 
 == Obtaining the source files
+
 [%collapsible]
 ====
 Navigate to the *rpmbuild* directory.
@@ -47,12 +48,14 @@ Expand the next section header to continue the challenge.
 ====
 
 == Writing the spec file
+
 [%collapsible]
 ====
+
 Now you are going to create the spec file in the *SPECS* directory. You
 will start with the *preamble*, where metadata about the package is
-defined. The table below describes the preamble tags we are going to use
-for the *bello* package.
+defined. The table below describes the preamble tags you are going to
+use for the *bello* package.
 
 [width="100%",cols="50%,50%",options="header",]
 |===
@@ -82,7 +85,7 @@ properties together form a useful identifier known as the *NVR*
 though this does not match the version of the software. You will set
 this to the correct version in a future step.
 
-The command below uses what is called a "`here document`" to write the
+The command below uses what is called a "here document" to write the
 contents of the spec file. If you like, you can write the same content
 to that file manually with a command-line text editor such as vim or
 nano.
@@ -99,10 +102,10 @@ EOF
 Next, define the *Summary*, *License*, and *URL* for the software.
 Define *Source* as the link where one may download the source code
 archive if they did not already have it, making sure the last segment
-matches our source code archive filename. You’ll note that in the
-*Source* below we use the *%\{url}* macro, which will expand to the
-value you set in the *URL* tag. Define *BuildArch* as *noarch* to mark
-the package as architecture-independent.
+matches our source code archive filename. Note that the *Source* tag
+below uses the *%\{url}* macro, which will expand to the value you set
+in the *URL* tag. Define *BuildArch* as *noarch* to mark the package as
+architecture-independent.
 
 You might think you need to add a *Requires* to indicate the software
 requires *bash*, however, this dependency will be added automatically in
@@ -191,7 +194,7 @@ manifest of what files are included in your package.
 Add the *LICENSE* file to this manifest, with the special *%license*
 attribute. Usually files here use absolute paths (relative to the
 *%\{buildroot}*), but in this case you will use just the filename. This
-is because you haven’t copied the *LICENSE* file from the extracted
+is because you haven't copied the *LICENSE* file from the extracted
 source code archive into the *%\{buildroot}* yet. The *%license*
 attribute will do that for you automatically, copying the file into
 */usr/share/licenses/bello* inside the *%\{buildroot}*.
@@ -269,9 +272,11 @@ install -D -p -m 0755 bello %{buildroot}%{_bindir}/bello
 %changelog
 * Mon Mar 02 2026 First Last <first@example.com> - 0.1-1
 - Initial package
+
 ----
 
 Expand the next section header to continue the challenge.
+
 ====
 
 == Building the package
@@ -296,7 +301,7 @@ Wrote: /home/rhel/rpmbuild/RPMS/noarch/bello-0.1-1.el10.noarch.rpm
 ### OUTPUT ABRIDGED ###
 ----
 
-Use the *rpm* command to list the contents of the source package. You’ll
+Use the *rpm* command to list the contents of the source package. You'll
 notice this includes the spec file and source code archive.
 
 [source,bash,run]

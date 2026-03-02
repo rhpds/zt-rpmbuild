@@ -6,7 +6,7 @@ with RHEL 9, even though the build host is RHEL 10.
 
 This challenge uses files that you created during the *pello* challenge,
 so if you skipped it you need to go back and complete it by clicking the
-"`Progress`" button in the top right.
+"Previous" button.
 
 Expand the section headers below to work on each section of this
 challenge.
@@ -15,6 +15,7 @@ challenge.
 
 [%collapsible]
 ====
+
 Mock is not part of RHEL. It is available from the EPEL (Extra Packages
 for Enterprise Linux) repository. Some packages in EPEL have
 dependencies from the CodeReady Builder repository.

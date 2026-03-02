@@ -60,7 +60,7 @@ Expand the next section header to continue the challenge.
 [%collapsible]
 ====
 
-Here is a table of some of the additional preamble tags we will use in
+Here is a table of some of the additional preamble tags you will use in
 this spec file and their purpose.
 
 [width="100%",cols="50%,50%",options="header",]
@@ -145,7 +145,7 @@ steps needed to build the software.
 While *bello* in the previous challenge did not need to be compiled, the
 same is not true for *cello*. Its source code must be compiled into an
 executable binary. This is done with the *make* command, which uses
-instructions from *cello*’s Makefile.
+instructions from *cello*'s Makefile.
 
 Add the *%make_build* macro, which will run the *make* command with
 packaging-specific options.
@@ -257,6 +257,7 @@ The long description for our Hello World Example implemented in C.
 %changelog
 * Mon Mar 02 2026 First Last <first@example.com> - 1.0-1
 - Initial package
+
 ----
 
 Expand the next section header to continue the challenge.
