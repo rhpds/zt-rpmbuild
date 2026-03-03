@@ -1,3 +1,10 @@
+== Build software into RPM packages
+
+In this lab, you will learn about https://rpm.org/[RPM], the native
+package format used by Fedora, CentOS, and RHEL.  RPM is a powerful and
+flexible tool that plays a vital role in the management and distribution
+of software for these operating systems. 
+
 == Welcome to the lab environment!
 
 Welcome to the lab environment! Here a few tips for completing these
