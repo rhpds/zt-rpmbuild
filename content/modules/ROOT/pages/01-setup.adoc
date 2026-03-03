@@ -5,20 +5,6 @@ package format used by Fedora, CentOS, and RHEL.  RPM is a powerful and
 flexible tool that plays a vital role in the management and distribution
 of software for these operating systems. 
 
-== Welcome to the lab environment!
-
-Welcome to the lab environment! Here a few tips for completing these
-challenges.
-
-* This sidebar can be resized by clicking and dragging on the three
-vertical dots. This helps to avoid horizontally scrolling code blocks.
-* *Command blocks* show you the commands you need to run to complete the
-challenge. These blocks will have a copy button in the top right corner.
-* *Output blocks* show the expected output from the commands you run.
-They look similar to command blocks, except they will *not* have a copy
-button in the top right corner. Do *not* attempt to run the text from
-these blocks as commands.
-
 == Setting up the packaging workspace
 
 Your first challenge is to set up your packaging workspace.
