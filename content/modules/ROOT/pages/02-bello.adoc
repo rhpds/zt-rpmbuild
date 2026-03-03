@@ -2,13 +2,8 @@
 
 Your next challenge is to package *bello*, a program written in Bash.
 
-Expand the section headers below to work on each section of this
-challenge.
-
 == Obtaining the source files
 
-[%collapsible]
-====
 Navigate to the *rpmbuild* directory.
 
 [source,bash,run]
@@ -44,13 +39,7 @@ ls SOURCES/bello*
 SOURCES/bello-0.1.tar.gz
 ----
 
-Expand the next section header to continue the challenge.
-====
-
 == Writing the spec file
-
-[%collapsible]
-====
 
 Now you are going to create the spec file in the *SPECS* directory. You
 will start with the *preamble*, where metadata about the package is
@@ -257,14 +246,7 @@ install -D -p -m 0755 bello %{buildroot}%{_bindir}/bello
 
 ----
 
-Expand the next section header to continue the challenge.
-
-====
-
 == Building the package
-
-[%collapsible]
-====
 
 You can now build the package with the *rpmbuild* command. This will create a
 package and a source package in the appropriate directories in your packaging
@@ -340,4 +322,3 @@ Hello World
 
 That concludes this challenge. In the next challenge, you will be
 packaging a C program named *cello*.
-====

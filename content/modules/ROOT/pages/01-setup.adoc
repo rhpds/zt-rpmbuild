@@ -14,13 +14,9 @@ these blocks as commands.
 
 == Setting up the packaging workspace
 
-Your first challenge is to set up your packaging workspace. Expand the
-section headers below to work on each section of this challenge.
+Your first challenge is to set up your packaging workspace.
 
 == Installing the necessary packages
-
-[%collapsible]
-====
 
 Install the *rpmdevtools* package.
 
@@ -37,14 +33,7 @@ Installing:
 ### OUTPUT ABRIDGED ###
 ----
 
-Expand the next section header to continue the challenge.
-
-====
-
 == Defining the %packager macro
-
-[%collapsible]
-====
 
 Define the *%packager* macro in the *~/.rpmmacros* file. This will be
 used later when you generate *changelog* entries. You may use either
@@ -72,14 +61,7 @@ rpm --eval '%packager'
 First Last <first@example.com>
 ----
 
-Expand the next section header to continue the challenge.
-
-====
-
 == Create the rpmbuild directory tree
-
-[%collapsible]
-====
 
 Finally, run the *rpmdev-setuptree* command to create the default
 directories for building packages.
@@ -112,5 +94,3 @@ rpmbuild
 That concludes this challenge. In the next challenge, you will build
 your first package using this environment and the tools that you
 installed.
-
-====

@@ -4,13 +4,8 @@ Your next challenge is to package *cello*, a program written in C.
 Because this program must be compiled from source, this spec file will
 have some notable differences from the previous one.
 
-Expand the section headers below to work on each section of this
-challenge.
-
 == Obtaining the source files
 
-[%collapsible]
-====
 Navigate to the *rpmbuild* directory.
 
 [source,bash,run]
@@ -51,14 +46,7 @@ ls SOURCES/cello*
 SOURCES/cello-1.0.tar.gz  SOURCES/cello-output-first-patch.patch
 ----
 
-Expand the next section header to continue the challenge.
-
-====
-
 == Writing the spec file
-
-[%collapsible]
-====
 
 Here is a table of some of the additional preamble tags you will use in
 this spec file and their purpose.
@@ -261,14 +249,7 @@ The long description for our Hello World Example implemented in C.
 
 ----
 
-Expand the next section header to continue the challenge.
-
-====
-
 == Building the package
-
-[%collapsible]
-====
 
 Because this package has build requirements defined in the preamble, you
 must install them before building the package.
@@ -378,5 +359,3 @@ Hello World from my very first patch!
 
 That concludes this challenge. In the next challenge, you will be
 packaging a Python program named *pello*.
-
-====

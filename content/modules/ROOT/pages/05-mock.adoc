@@ -8,13 +8,7 @@ This challenge uses files that you created during the *pello* challenge,
 so if you skipped it you need to go back and complete it by clicking the
 "Previous" button.
 
-Expand the section headers below to work on each section of this
-challenge.
-
 == Install and configure mock
-
-[%collapsible]
-====
 
 NOTE: Mock is not part of RHEL.  It is available from the EPEL (Extra
 Packages for Enterprise Linux) repository.  This is a third-party
@@ -69,14 +63,7 @@ Start a new login shell to have the new group membership take effect.
 sudo -iu rhel
 ----
 
-Expand the next section header to continue the challenge.
-
-====
-
 == Build with mock from a source package
-
-[%collapsible]
-====
 
 Navigate to the *rpmbuild* directory.
 
@@ -136,14 +123,7 @@ rpm --query --requires --package RPMS/noarch/pello-1.0.4-1.el10.noarch.rpm | gre
 python(abi) = 3.12
 ----
 
-Expand the next section header to continue the challenge.
-
-====
-
 == Build with mock from a spec file
-
-[%collapsible]
-====
 
 In addition to rebuilding source packages, *mock* is also able to build
 directly from a spec file and the corresponding sources. Before you do
@@ -207,5 +187,3 @@ Hello World! on the command line.
 
 That concludes this challenge, which is the final challenge for this
 track.
-
-====
