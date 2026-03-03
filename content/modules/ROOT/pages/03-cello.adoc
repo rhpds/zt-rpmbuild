@@ -4,7 +4,7 @@ Your next challenge is to package *cello*, a program written in C.
 Because this program must be compiled from source, this spec file will
 have some notable differences from the previous one.
 
-== Obtaining the source files
+=== Obtaining the source files
 
 Navigate to the *rpmbuild* directory.
 
@@ -46,7 +46,7 @@ ls SOURCES/cello*
 SOURCES/cello-1.0.tar.gz  SOURCES/cello-output-first-patch.patch
 ----
 
-== Writing the spec file
+=== Writing the spec file
 
 Here is a table of some of the additional preamble tags you will use in
 this spec file and their purpose.
@@ -249,7 +249,7 @@ The long description for our Hello World Example implemented in C.
 
 ----
 
-== Building the package
+=== Building the package
 
 Because this package has build requirements defined in the preamble, you
 must install them before building the package.

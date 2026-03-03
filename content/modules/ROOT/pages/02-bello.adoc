@@ -2,7 +2,7 @@
 
 Your next challenge is to package *bello*, a program written in Bash.
 
-== Obtaining the source files
+=== Obtaining the source files
 
 Navigate to the *rpmbuild* directory.
 
@@ -39,7 +39,7 @@ ls SOURCES/bello*
 SOURCES/bello-0.1.tar.gz
 ----
 
-== Writing the spec file
+=== Writing the spec file
 
 Now you are going to create the spec file in the *SPECS* directory. You
 will start with the *preamble*, where metadata about the package is
@@ -246,7 +246,7 @@ install -D -p -m 0755 bello %{buildroot}%{_bindir}/bello
 
 ----
 
-== Building the package
+=== Building the package
 
 You can now build the package with the *rpmbuild* command. This will create a
 package and a source package in the appropriate directories in your packaging

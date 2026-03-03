@@ -5,7 +5,7 @@ This will be an architecture-independent (*noarch*) package like
 *bello*, but it will also have files that need to be compiled to byte
 code.
 
-== Obtaining the source files
+=== Obtaining the source files
 
 Navigate to the *rpmbuild* directory.
 
@@ -40,7 +40,7 @@ ls SOURCES/Pello*
 SOURCES/Pello-1.0.4.tar.gz
 ----
 
-== Writing the spec file
+=== Writing the spec file
 
 Define the *NVR* (*Name*, *Version*, *Release*) of the package. For now,
 set the version to *0*, even though this does not match the version of
@@ -274,7 +274,7 @@ Hello World! on the command line.
 
 ----
 
-== Building the package
+=== Building the package
 
 NOTE: Some of the build requirements are in the CodeReady Builder
 repository.  On RHEL this repository is available by default, but not
