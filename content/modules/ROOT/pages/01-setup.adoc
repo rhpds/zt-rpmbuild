@@ -81,7 +81,7 @@ rpmbuild
 ├── SPECS
 └── SRPMS
 
-5 directories, 0 files
+6 directories, 0 files
 ----
 
 That concludes this challenge. In the next challenge, you will build
