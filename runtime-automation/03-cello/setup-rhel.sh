@@ -1,12 +1,2 @@
 #!/bin/sh
 echo "Starting module called 03-cello" >> /tmp/progress.log
-
-wget \
-    --retry-connrefused \
-    --directory-prefix /home/rhel/downloads \
-    https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/cello-1.0.tar.gz \
-    https://github.com/redhat-developer/rpm-packaging-guide/raw/master/example-code/cello-output-first-patch.patch
-
-chown rhel: \
-    /home/rhel/downloads/cello-1.0.tar.gz \
-    /home/rhel/downloads/cello-output-first-patch.patch

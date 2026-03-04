@@ -26,6 +26,3 @@ sed -e '/^metalink=https:\/\/mirrors.fedoraproject.org\/metalink/ s/^/#/' \
 
 # echo "configuring rhel user bashrc"
 cat /root/.bashrc > /home/rhel/.bashrc
-
-mkdir -p /home/rhel/downloads
-chown rhel: /home/rhel/downloads
