@@ -20,12 +20,7 @@ archive into the *SOURCES* directory.
 
 [source,bash,run]
 ----
-mv -v ~/downloads/Pello-1.0.4.tar.gz SOURCES/
-----
-
-[source,nocopy]
-----
-renamed '/home/rhel/downloads/Pello-1.0.4.tar.gz' -> 'SOURCES/Pello-1.0.4.tar.gz'
+mv ~/downloads/Pello-1.0.4.tar.gz SOURCES/
 ----
 
 Verify the source code archive is in the correct location.

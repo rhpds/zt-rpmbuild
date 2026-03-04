@@ -18,12 +18,7 @@ Move the source code archive into the *SOURCES* directory.
 
 [source,bash,run]
 ----
-mv -v /home/rhel/downloads/bello-0.1.tar.gz SOURCES/
-----
-
-[source,nocopy]
-----
-renamed '/home/rhel/downloads/bello-0.1.tar.gz' -> 'SOURCES/bello-0.1.tar.gz'
+mv /home/rhel/downloads/bello-0.1.tar.gz SOURCES/
 ----
 
 Verify the source code archive is in the correct location. The filename
