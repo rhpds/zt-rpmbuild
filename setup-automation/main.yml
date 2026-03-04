@@ -43,6 +43,7 @@
       - Pello-1.0.4.tar.gz
 
   - name: Remove gcc and make
+    become: true
     ansible.builtin.package:
       name:
         - gcc
