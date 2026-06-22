@@ -5,8 +5,8 @@ virtualmachines:
     bootloader: efi
     memory: "4G"
     cores: 1
-    packages:
-      - tmux
+    # packages:
+    # - tmux
     image_size: "40G"
     register_satellite: false
     tags:
