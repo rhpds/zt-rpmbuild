@@ -7,13 +7,6 @@ code.
 
 === Obtaining the source files
 
-Navigate to the *rpmbuild* directory.
-
-[source,bash,run]
-----
-cd /home/rhel/rpmbuild
-----
-
 The source code archive for pello is located at
 *~/downloads/Pello-1.0.4.tar.gz* on your system. Move the source code
 archive into the *SOURCES* directory.
