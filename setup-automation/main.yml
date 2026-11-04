@@ -50,6 +50,16 @@
         - make
       state: absent
 
+  - name: Install CLI tools
+    become: true
+    ansible.builtin.package:
+      name:
+        - nano
+        - tree
+        - vim-enhanced
+        - wget
+      state: present
+
   - name: Create a directory if it does not exist
     ansible.builtin.file:
       path: "/tmp/setup-scripts/"
