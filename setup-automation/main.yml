@@ -25,41 +25,6 @@
     set_fact:
       config_host: "{{ ansible_host }}"
 
-  - name: Create downloads directory
-    ansible.builtin.file:
-      path: ~/downloads
-      state: directory
-      mode: "0755"
-
-  - name: Copy sources
-    ansible.builtin.copy:
-      src: "./{{ item }}"
-      dest: "~/downloads/{{ item }}"
-      mode: "0644"
-    loop:
-      - bello-0.1.tar.gz
-      - cello-1.0.tar.gz
-      - cello-output-first-patch.patch
-      - Pello-1.0.4.tar.gz
-
-  - name: Remove gcc and make
-    become: true
-    ansible.builtin.package:
-      name:
-        - gcc
-        - make
-      state: absent
-
-  - name: Install CLI tools
-    become: true
-    ansible.builtin.package:
-      name:
-        - nano
-        - tree
-        - vim-enhanced
-        - wget
-      state: present
-
   - name: Create a directory if it does not exist
     ansible.builtin.file:
       path: "/tmp/setup-scripts/"
@@ -110,3 +75,37 @@
     - r_result is defined
     - r_result.rc != 0
 
+  - name: Create downloads directory
+    ansible.builtin.file:
+      path: ~/downloads
+      state: directory
+      mode: "0755"
+
+  - name: Copy sources
+    ansible.builtin.copy:
+      src: "./{{ item }}"
+      dest: "~/downloads/{{ item }}"
+      mode: "0644"
+    loop:
+      - bello-0.1.tar.gz
+      - cello-1.0.tar.gz
+      - cello-output-first-patch.patch
+      - Pello-1.0.4.tar.gz
+
+  - name: Remove gcc and make
+    become: true
+    ansible.builtin.package:
+      name:
+        - gcc
+        - make
+      state: absent
+
+  - name: Install CLI tools
+    become: true
+    ansible.builtin.package:
+      name:
+        - nano
+        - tree
+        - vim-enhanced
+        - wget
+      state: present
