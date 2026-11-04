@@ -6,13 +6,6 @@ have some notable differences from the previous one.
 
 === Obtaining the source files
 
-Navigate to the *rpmbuild* directory.
-
-[source,bash,run]
-----
-cd /home/rhel/rpmbuild
-----
-
 The source code archive for *cello* is located at
 *~/downloads/cello-1.0.tar.gz* on your system. There is also a patch
 file located at *~/downloads/cello-output-first-patch.patch* that you

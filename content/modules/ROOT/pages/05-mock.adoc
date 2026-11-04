@@ -69,7 +69,7 @@ Navigate to the *rpmbuild* directory.
 
 [source,bash,run]
 ----
-cd /home/rhel/rpmbuild
+cd rpmbuild
 ----
 
 Use the *mock* command to build *pello* for RHEL 9 from the previously
